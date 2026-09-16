@@ -7,2445 +7,1805 @@
 <title>Read Before You Use</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f6fb;
-    color:#172033;
-}
-
-button{
-    font-family:inherit;
-    cursor:pointer;
-}
-
-.app{
-    max-width:760px;
-    margin:auto;
-    min-height:100vh;
-    padding-bottom:90px;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-    background:linear-gradient(135deg,#315bea,#7159df);
-    color:white;
-    padding:25px 20px 30px;
-    border-radius:0 0 28px 28px;
-}
-
-.header-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-weight:bold;
-    font-size:14px;
-}
-
-.language{
-    border:1px solid rgba(255,255,255,.4);
-    background:rgba(255,255,255,.12);
-    color:white;
-    border-radius:20px;
-    padding:7px 12px;
-}
-
-.header h1{
-    font-size:30px;
-    line-height:1.1;
-    margin:28px 0 8px;
-}
-
-.header p{
-    margin:0;
-    color:#e8edff;
-}
-
-/* ================= CONTENT ================= */
-
-.content{
-    padding:16px;
-}
-
-.screen{
-    display:none;
-}
-
-.screen.active{
-    display:block;
-}
-
-.card{
-    background:white;
-    border:1px solid #e2e6ef;
-    border-radius:20px;
-    padding:20px;
-    margin:13px 0;
-    box-shadow:0 7px 22px rgba(20,30,60,.05);
-}
-
-.hero{
-    text-align:center;
-    background:linear-gradient(135deg,#edf2ff,#f7f2ff);
-    border:none;
-}
-
-.hero-title{
-    font-size:30px;
-    font-weight:900;
-    color:#315bea;
-}
-
-.section-title{
-    margin:10px 2px 15px;
-}
-
-.section-title h2{
-    margin:0;
-    font-size:25px;
-}
-
-.section-title p{
-    margin:4px 0;
-    color:#6c7688;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
-.tile{
-    background:white;
-    border:1px solid #e0e4ed;
-    border-radius:17px;
-    padding:17px;
-    text-align:left;
-    min-height:115px;
-    transition:.2s;
-}
-
-.tile:hover{
-    transform:translateY(-2px);
-    border-color:#9eaff0;
-}
-
-.tile-icon{
-    font-size:28px;
-}
-
-.tile strong{
-    display:block;
-    margin-top:8px;
-}
-
-.tile small{
-    color:#70798a;
-}
-
-/* ================= BUTTONS ================= */
-
-.btn{
-    border:none;
-    background:#315bea;
-    color:white;
-    border-radius:12px;
-    padding:11px 16px;
-    font-weight:bold;
-}
-
-.btn:hover{
-    opacity:.9;
-}
-
-.btn.secondary{
-    background:#edf1ff;
-    color:#3151c7;
-}
-
-.btn.full{
-    width:100%;
-    margin-top:10px;
-}
-
-.back{
-    border:none;
-    background:none;
-    color:#315bea;
-    font-weight:bold;
-    padding:5px 0;
-}
-
-/* ================= PROGRESS ================= */
-
-.progress-label{
-    display:flex;
-    justify-content:space-between;
-    color:#6c7688;
-    font-size:13px;
-    margin-top:18px;
-}
-
-.progress{
-    height:9px;
-    background:#e7eaf1;
-    border-radius:20px;
-    overflow:hidden;
-    margin-top:6px;
-}
-
-.progress-bar{
-    width:0%;
-    height:100%;
-    background:#315bea;
-    transition:.4s;
-}
-
-/* ================= THEORY ================= */
-
-.theory{
-    background:#f8f9fc;
-    border:1px solid #e3e6ed;
-    border-radius:16px;
-    padding:17px;
-    margin-top:14px;
-}
-
-.theory h3{
-    color:#315bea;
-    margin-top:0;
-}
-
-.example{
-    background:#eef3ff;
-    border-left:4px solid #315bea;
-    padding:13px;
-    border-radius:10px;
-    margin:12px 0;
-}
-
-.warning{
-    background:#fff0f0;
-    border-left:4px solid #d43b3b;
-    padding:13px;
-    border-radius:10px;
-    margin:12px 0;
-}
-
-.tip{
-    background:#ebf9f1;
-    border-left:4px solid #168a4b;
-    padding:13px;
-    border-radius:10px;
-    margin:12px 0;
-}
-
-/* ================= WORD LIST ================= */
-
-.word-list{
-    display:grid;
-    gap:8px;
-}
-
-.word{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    padding:12px;
-    border:1px solid #e0e4ec;
-    border-radius:12px;
-    background:white;
-}
-
-.word b{
-    color:#315bea;
-}
-
-.word span{
-    color:#697386;
-    text-align:right;
-}
-
-/* ================= SEARCH ================= */
-
-.search{
-    display:flex;
-    gap:8px;
-}
-
-.search input{
-    flex:1;
-    padding:13px;
-    border:1px solid #dce1ea;
-    border-radius:12px;
-    outline:none;
-}
-
-.search input:focus{
-    border-color:#315bea;
-}
-
-/* ================= QUIZ ================= */
-
-.question{
-    border-top:1px solid #e2e5ec;
-    padding:18px 0;
-}
-
-.question:first-child{
-    border-top:none;
-}
-
-.question-title{
-    font-weight:bold;
-}
-
-.options{
-    display:grid;
-    gap:8px;
-    margin-top:12px;
-}
-
-.option{
-    background:white;
-    border:2px solid #e0e4ec;
-    border-radius:12px;
-    padding:12px;
-    text-align:left;
-}
-
-.option:hover{
-    border-color:#9eaff0;
-}
-
-.option.correct{
-    border-color:#168a4b;
-    background:#e8f8ef;
-}
-
-.option.wrong{
-    border-color:#d33d3d;
-    background:#fff0f0;
-}
-
-.feedback{
-    padding:10px;
-    border-radius:10px;
-    margin-top:10px;
-    font-weight:bold;
-}
-
-.correct-feedback{
-    background:#e8f8ef;
-    color:#11663a;
-}
-
-.wrong-feedback{
-    background:#fff0f0;
-    color:#a12727;
-}
-
-/* ================= STEPS ================= */
-
-.step{
-    display:flex;
-    gap:14px;
-    padding:15px 0;
-    border-bottom:1px solid #e3e6ed;
-}
-
-.step:last-child{
-    border-bottom:none;
-}
-
-.step-number{
-    min-width:42px;
-    height:42px;
-    border-radius:50%;
-    background:#315bea;
-    color:white;
-    display:grid;
-    place-items:center;
-    font-weight:bold;
-}
-
-/* ================= SCORE ================= */
-
-.score{
-    text-align:center;
-    font-size:58px;
-    font-weight:900;
-    color:#315bea;
-}
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(760px,100%);
-    background:rgba(255,255,255,.96);
-    border-top:1px solid #dfe3eb;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    padding:8px 5px;
-    z-index:100;
-}
-
-.bottom-nav button{
-    border:none;
-    background:none;
-    color:#747d8e;
-    font-size:11px;
-    font-weight:bold;
-}
-
-.bottom-nav button.active{
-    color:#315bea;
-}
-
-.nav-icon{
-    display:block;
-    font-size:20px;
-    margin-bottom:2px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:520px){
-
-    .grid{
-        grid-template-columns:1fr;
+    * {
+        box-sizing: border-box;
     }
 
-    .header h1{
-        font-size:27px;
+    html {
+        scroll-behavior: smooth;
     }
 
-    .card{
-        padding:17px;
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        background: #f5f7fb;
+        color: #1f2937;
+        line-height: 1.6;
     }
 
-}
+    header {
+        background: linear-gradient(135deg, #315bea, #6c5ce7);
+        color: white;
+        padding: 55px 20px 45px;
+        text-align: center;
+    }
 
+    header h1 {
+        font-size: clamp(32px, 7vw, 58px);
+        margin: 0 0 12px;
+        font-weight: 800;
+    }
+
+    header p {
+        font-size: 18px;
+        max-width: 720px;
+        margin: auto;
+        opacity: 0.95;
+    }
+
+    .subtitle {
+        margin-top: 18px;
+        font-size: 15px;
+        opacity: 0.85;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: white;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    nav .nav-inner {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        padding: 10px;
+        gap: 7px;
+    }
+
+    nav button {
+        border: none;
+        background: transparent;
+        padding: 10px 13px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        color: #4b5563;
+        font-size: 14px;
+    }
+
+    nav button:hover {
+        background: #eef2ff;
+        color: #315bea;
+    }
+
+    main {
+        max-width: 1000px;
+        margin: auto;
+        padding: 25px 16px 70px;
+    }
+
+    section {
+        background: white;
+        border-radius: 20px;
+        padding: 28px;
+        margin: 25px 0;
+        box-shadow: 0 8px 30px rgba(31,41,55,0.07);
+    }
+
+    h2 {
+        color: #315bea;
+        font-size: 28px;
+        margin-top: 0;
+    }
+
+    h3 {
+        color: #374151;
+    }
+
+    .hero-card {
+        text-align: center;
+        padding: 35px 20px;
+    }
+
+    .hero-card h2 {
+        font-size: 30px;
+    }
+
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .step {
+        padding: 20px 12px;
+        border-radius: 15px;
+        background: #f1f4ff;
+        text-align: center;
+    }
+
+    .step strong {
+        display: block;
+        font-size: 21px;
+        color: #315bea;
+        margin-bottom: 5px;
+    }
+
+    .step span {
+        font-size: 13px;
+    }
+
+    .info-box {
+        background: #eef5ff;
+        border-left: 5px solid #315bea;
+        padding: 16px 18px;
+        border-radius: 10px;
+        margin: 18px 0;
+    }
+
+    .warning-box {
+        background: #fff7ed;
+        border-left: 5px solid #f97316;
+        padding: 16px 18px;
+        border-radius: 10px;
+        margin: 18px 0;
+    }
+
+    .success-box {
+        background: #ecfdf5;
+        border-left: 5px solid #10b981;
+        padding: 16px 18px;
+        border-radius: 10px;
+        margin: 18px 0;
+    }
+
+    .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 13px;
+    }
+
+    .vocab {
+        border: 1px solid #e5e7eb;
+        padding: 17px;
+        border-radius: 14px;
+        transition: 0.2s;
+    }
+
+    .vocab:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+    }
+
+    .vocab-word {
+        color: #315bea;
+        font-size: 19px;
+        font-weight: 800;
+    }
+
+    .vocab-translation {
+        font-weight: 600;
+        margin: 4px 0;
+    }
+
+    .example {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .scenario {
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 20px;
+    }
+
+    .scenario-icon {
+        font-size: 35px;
+    }
+
+    .scenario button {
+        margin-top: 10px;
+    }
+
+    button.primary,
+    button.secondary {
+        border: none;
+        border-radius: 11px;
+        padding: 12px 18px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    button.primary {
+        background: #315bea;
+        color: white;
+    }
+
+    button.primary:hover {
+        background: #2449c9;
+    }
+
+    button.secondary {
+        background: #eef2ff;
+        color: #315bea;
+    }
+
+    button:disabled {
+        cursor: default;
+    }
+
+    .exercise {
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 20px;
+        margin: 18px 0;
+    }
+
+    .exercise-question {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .exercise-options {
+        display: grid;
+        gap: 9px;
+    }
+
+    .option {
+        text-align: left;
+        width: 100%;
+        padding: 13px 15px;
+        border-radius: 10px;
+        border: 2px solid #e5e7eb;
+        background: white;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .option:hover:not(:disabled) {
+        border-color: #315bea;
+        background: #f7f8ff;
+    }
+
+    .option.correct {
+        border-color: #10b981;
+        background: #ecfdf5;
+        color: #047857;
+        font-weight: 700;
+    }
+
+    .option.wrong {
+        border-color: #ef4444;
+        background: #fef2f2;
+        color: #b91c1c;
+        font-weight: 700;
+    }
+
+    .feedback {
+        margin-top: 12px;
+        padding: 11px;
+        border-radius: 9px;
+        display: none;
+        font-size: 14px;
+    }
+
+    .feedback.show {
+        display: block;
+    }
+
+    .feedback.correct-feedback {
+        background: #ecfdf5;
+        color: #047857;
+    }
+
+    .feedback.wrong-feedback {
+        background: #fef2f2;
+        color: #b91c1c;
+    }
+
+    .quiz-progress {
+        height: 10px;
+        background: #e5e7eb;
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    .quiz-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #315bea;
+        transition: width 0.3s;
+    }
+
+    .quiz-question {
+        display: none;
+    }
+
+    .quiz-question.active {
+        display: block;
+    }
+
+    .quiz-counter {
+        color: #6b7280;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .quiz-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .result-box {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+        padding: 30px 20px;
+        border-radius: 18px;
+        background: #f1f5ff;
+    }
+
+    .result-box.show {
+        display: block;
+    }
+
+    .result-score {
+        font-size: 52px;
+        font-weight: 800;
+        color: #315bea;
+        margin: 5px;
+    }
+
+    .result-percent {
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    .error-list {
+        text-align: left;
+        max-width: 700px;
+        margin: 20px auto;
+    }
+
+    .error-item {
+        background: #fff;
+        padding: 13px;
+        border-radius: 10px;
+        margin: 8px 0;
+        border-left: 4px solid #ef4444;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .progress-container {
+        margin: 15px 0;
+    }
+
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: #6b7280;
+    }
+
+    .progress {
+        height: 8px;
+        background: #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        width: 0;
+        background: #315bea;
+        transition: width 0.4s;
+    }
+
+    footer {
+        background: #111827;
+        color: white;
+        text-align: center;
+        padding: 35px 20px;
+    }
+
+    footer p {
+        margin: 5px;
+        opacity: 0.8;
+    }
+
+    @media (max-width: 700px) {
+        section {
+            padding: 21px 17px;
+            border-radius: 16px;
+        }
+
+        .steps {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .vocab-grid,
+        .scenario-grid {
+            grid-template-columns: 1fr;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .quiz-navigation {
+            flex-direction: column;
+        }
+
+        .quiz-navigation button {
+            width: 100%;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-<div class="header-top">
-
-<div class="logo">
-📖 READ BEFORE YOU USE
-</div>
-
-<button class="language" onclick="changeLanguage()">
-RU / EN
-</button>
-
-</div>
-
-<h1 id="mainTitle">
-Understand English. Use Products Safely.
-</h1>
-
-<p id="mainSubtitle">
-A practical guide for understanding everyday product instructions.
-</p>
-
+<header id="home">
+    <h1>Read Before You Use</h1>
+    <p>
+        A practical English guide for understanding product instructions
+        in everyday life.
+    </p>
+    <div class="subtitle">
+        Read. Find. Check. Act.
+    </div>
 </header>
 
+<nav>
+    <div class="nav-inner">
+        <button onclick="goTo('home')">🏠 Home</button>
+        <button onclick="goTo('strategy')">🧠 Strategy</button>
+        <button onclick="goTo('vocabulary')">🔤 Vocabulary</button>
+        <button onclick="goTo('situations')">🧴 Situations</button>
+        <button onclick="goTo('exercises')">✏️ Exercises</button>
+        <button onclick="goTo('quiz')">📝 Test</button>
+    </div>
+</nav>
 
-<main class="content">
+<main>
 
+<section class="hero-card">
+    <h2>Why do we need this guide?</h2>
 
-<!-- ================= HOME ================= -->
+    <p>
+        English is not only a school subject.
+        We can meet English instructions on cosmetics,
+        electronic devices, chargers and many other products.
+    </p>
 
-<section id="home" class="screen active">
+    <p>
+        You may know individual English words but still have
+        difficulties understanding what you actually need to do.
+    </p>
 
-<div class="card hero">
+    <div class="info-box">
+        <strong>Remember:</strong>
+        You do not always need to understand every word.
+        You need to understand the important information.
+    </div>
 
-<div class="hero-title">
-READ → FIND → CHECK → ACT
-</div>
-
-<p>
-Your 4-step method for understanding English instructions.
-</p>
-
-<div class="progress-label">
-<span>Your progress</span>
-<strong id="progressText">0%</strong>
-</div>
-
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-
-</div>
-
-
-<div class="section-title">
-
-<h2>
-What do you need?
-</h2>
-
-<p>
-Choose what you want to do.
-</p>
-
-</div>
+    <button class="primary" onclick="goTo('strategy')">
+        Start the guide →
+    </button>
+</section>
 
 
-<div class="grid">
+<section id="strategy">
 
-<button class="tile" onclick="openScreen('learn')">
+    <h2>🧠 The READ → FIND → CHECK → ACT strategy</h2>
 
-<div class="tile-icon">📚</div>
+    <p>
+        This guide teaches you not only vocabulary,
+        but also a strategy for reading instructions.
+    </p>
 
-<strong>Learn</strong>
+    <div class="steps">
 
-<small>
-Learn the theory
-</small>
+        <div class="step">
+            <strong>1. READ</strong>
+            <span>Read the whole instruction.</span>
+        </div>
 
-</button>
+        <div class="step">
+            <strong>2. FIND</strong>
+            <span>Find the main action and key words.</span>
+        </div>
 
+        <div class="step">
+            <strong>3. CHECK</strong>
+            <span>Check warnings, conditions and time.</span>
+        </div>
 
-<button class="tile" onclick="openScreen('practice')">
+        <div class="step">
+            <strong>4. ACT</strong>
+            <span>Do what the instruction tells you.</span>
+        </div>
 
-<div class="tile-icon">✏️</div>
+    </div>
 
-<strong>Practice</strong>
+    <div class="success-box">
+        <strong>Example:</strong><br><br>
 
-<small>
-Test your knowledge
-</small>
+        "Unplug the charger before cleaning the device."
 
-</button>
+        <br><br>
 
-
-<button class="tile" onclick="openScreen('quick')">
-
-<div class="tile-icon">⚡</div>
-
-<strong>Quick Help</strong>
-
-<small>
-Find a word quickly
-</small>
-
-</button>
-
-
-<button class="tile" onclick="openScreen('method')">
-
-<div class="tile-icon">🧠</div>
-
-<strong>4-Step Method</strong>
-
-<small>
-How to read instructions
-</small>
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🎯 Recommended
-</h3>
-
-<p>
-Learn a topic → practise → try a real instruction → take the final challenge.
-</p>
-
-<button class="btn full" onclick="openScreen('learn')">
-Start learning
-</button>
-
-</div>
+        <strong>READ:</strong> Read the complete sentence.<br>
+        <strong>FIND:</strong> Main action = unplug.<br>
+        <strong>CHECK:</strong> Before cleaning.<br>
+        <strong>ACT:</strong> Disconnect the charger first.
+    </div>
 
 </section>
 
 
+<section id="vocabulary">
 
-<!-- ================= LEARN ================= -->
+    <h2>🔤 Key Instruction Vocabulary</h2>
 
-<section id="learn" class="screen">
+    <p>
+        These words and expressions often appear in everyday
+        product instructions.
+    </p>
 
-<button class="back" onclick="openScreen('home')">
-← Home
-</button>
+    <div class="vocab-grid">
 
-<div class="section-title">
+        <div class="vocab">
+            <div class="vocab-word">unplug</div>
+            <div class="vocab-translation">disconnect from electricity</div>
+            <div class="example">"Unplug the device before cleaning."</div>
+        </div>
 
-<h2>
-📚 Learn
-</h2>
+        <div class="vocab">
+            <div class="vocab-word">plug in</div>
+            <div class="vocab-translation">connect to electricity</div>
+            <div class="example">"Plug in the charger."</div>
+        </div>
 
-<p>
-Choose one topic.
-</p>
+        <div class="vocab">
+            <div class="vocab-word">keep away from</div>
+            <div class="vocab-translation">do not put near</div>
+            <div class="example">"Keep away from children."</div>
+        </div>
 
-</div>
+        <div class="vocab">
+            <div class="vocab-word">out of reach</div>
+            <div class="vocab-translation">where someone cannot easily touch it</div>
+            <div class="example">"Keep out of reach of children."</div>
+        </div>
 
+        <div class="vocab">
+            <div class="vocab-word">avoid</div>
+            <div class="vocab-translation">do not do / do not use</div>
+            <div class="example">"Avoid contact with eyes."</div>
+        </div>
 
-<div class="grid">
+        <div class="vocab">
+            <div class="vocab-word">rinse</div>
+            <div class="vocab-translation">wash with water</div>
+            <div class="example">"Rinse with clean water."</div>
+        </div>
 
-<button class="tile" onclick="showTheory('actions')">
-<div class="tile-icon">🔵</div>
-<strong>Action Words</strong>
-<small>What should I do?</small>
-</button>
+        <div class="vocab">
+            <div class="vocab-word">suitable for</div>
+            <div class="vocab-translation">appropriate for</div>
+            <div class="example">"Suitable for sensitive skin."</div>
+        </div>
 
+        <div class="vocab">
+            <div class="vocab-word">warning</div>
+            <div class="vocab-translation">information about possible danger</div>
+            <div class="example">"Warning: Keep away from heat."</div>
+        </div>
 
-<button class="tile" onclick="showTheory('warnings')">
-<div class="tile-icon">🚨</div>
-<strong>Warnings</strong>
-<small>What must I NOT do?</small>
-</button>
+        <div class="vocab">
+            <div class="vocab-word">do not</div>
+            <div class="vocab-translation">prohibition</div>
+            <div class="example">"Do not use near water."</div>
+        </div>
 
+        <div class="vocab">
+            <div class="vocab-word">before</div>
+            <div class="vocab-translation">earlier than</div>
+            <div class="example">"Wash your hands before use."</div>
+        </div>
 
-<button class="tile" onclick="showTheory('time')">
-<div class="tile-icon">⏰</div>
-<strong>Time & Conditions</strong>
-<small>When?</small>
-</button>
+        <div class="vocab">
+            <div class="vocab-word">after</div>
+            <div class="vocab-translation">later than</div>
+            <div class="example">"Rinse after use."</div>
+        </div>
 
+        <div class="vocab">
+            <div class="vocab-word">for ... minutes</div>
+            <div class="vocab-translation">duration of an action</div>
+            <div class="example">"Leave for 5 minutes."</div>
+        </div>
 
-<button class="tile" onclick="showTheory('storage')">
-<div class="tile-icon">📦</div>
-<strong>Storage</strong>
-<small>Where should I keep it?</small>
-</button>
-
-
-<button class="tile" onclick="showTheory('context')">
-<div class="tile-icon">🔎</div>
-<strong>Context</strong>
-<small>Understand phrases</small>
-</button>
-
-
-<button class="tile" onclick="showTheory('method')">
-<div class="tile-icon">🧠</div>
-<strong>4-Step Method</strong>
-<small>Read → Find → Check → Act</small>
-</button>
-
-</div>
-
-
-<div id="theoryArea"></div>
-
-</section>
-
-
-
-<!-- ================= PRACTICE ================= -->
-
-<section id="practice" class="screen">
-
-<button class="back" onclick="openScreen('home')">
-← Home
-</button>
-
-<div class="section-title">
-
-<h2>
-✏️ Practice
-</h2>
-
-<p>
-Choose an exercise.
-</p>
-
-</div>
-
-
-<div class="grid">
-
-<button class="tile" onclick="startQuiz('actionsQuiz')">
-<div class="tile-icon">🔵</div>
-<strong>Practice 1</strong>
-<small>Action words</small>
-</button>
-
-
-<button class="tile" onclick="startQuiz('warningQuiz')">
-<div class="tile-icon">🚨</div>
-<strong>Practice 2</strong>
-<small>Warnings</small>
-</button>
-
-
-<button class="tile" onclick="startQuiz('realQuiz')">
-<div class="tile-icon">🏠</div>
-<strong>Real-Life Practice</strong>
-<small>Everyday products</small>
-</button>
-
-
-<button class="tile" onclick="startQuiz('finalQuiz')">
-<div class="tile-icon">🏆</div>
-<strong>Final Challenge</strong>
-<small>10 questions</small>
-</button>
-
-</div>
-
-
-<div id="quizArea"></div>
+    </div>
 
 </section>
 
 
+<section id="situations">
 
-<!-- ================= QUICK HELP ================= -->
+    <h2>🧴 English in everyday situations</h2>
 
-<section id="quick" class="screen">
+    <div class="scenario-grid">
 
-<button class="back" onclick="openScreen('home')">
-← Home
-</button>
+        <div class="scenario">
+            <div class="scenario-icon">🧴</div>
+            <h3>Cosmetics</h3>
+            <p>
+                Instructions may tell you how to apply a product,
+                how long to leave it and what to avoid.
+            </p>
 
-<div class="section-title">
+            <button class="secondary"
+                    onclick="showSituation('cosmetics')">
+                Show example
+            </button>
 
-<h2>
-⚡ Quick Help
-</h2>
-
-<p>
-Found a word in a real instruction? Search it.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="search">
-
-<input
-id="searchInput"
-placeholder="Example: unplug"
-oninput="searchWord()"
->
-
-<button class="btn" onclick="clearSearch()">
-Clear
-</button>
-
-</div>
+            <div id="cosmetics" class="info-box hidden">
+                <strong>Example:</strong><br>
+                "Apply to clean skin. Avoid contact with eyes.
+                Rinse thoroughly after use."
+            </div>
+        </div>
 
 
-<div
-id="searchResults"
-class="word-list"
-style="margin-top:15px">
-</div>
+        <div class="scenario">
+            <div class="scenario-icon">🔌</div>
+            <h3>Chargers</h3>
+            <p>
+                Electronic products often contain warnings
+                and instructions about electricity.
+            </p>
 
-</div>
+            <button class="secondary"
+                    onclick="showSituation('charger')">
+                Show example
+            </button>
+
+            <div id="charger" class="info-box hidden">
+                <strong>Example:</strong><br>
+                "Unplug the charger before cleaning.
+                Do not use near water."
+            </div>
+        </div>
 
 
-<div class="card">
+        <div class="scenario">
+            <div class="scenario-icon">💻</div>
+            <h3>Electronics</h3>
+            <p>
+                Instructions can contain actions,
+                conditions and warnings.
+            </p>
 
-<h3>
-⭐ Golden Rule
-</h3>
+            <button class="secondary"
+                    onclick="showSituation('electronics')">
+                Show example
+            </button>
 
-<p>
-Don't ask only:
-<strong>“What does this word mean?”</strong>
-</p>
+            <div id="electronics" class="info-box hidden">
+                <strong>Example:</strong><br>
+                "Keep the device away from heat.
+                Do not cover the ventilation openings."
+            </div>
+        </div>
 
-<p>
-Ask:
-<strong>“What does this word mean HERE?”</strong>
-</p>
 
-</div>
+        <div class="scenario">
+            <div class="scenario-icon">🧼</div>
+            <h3>Household products</h3>
+            <p>
+                Pay attention to prohibitions and
+                safety information.
+            </p>
+
+            <button class="secondary"
+                    onclick="showSituation('household')">
+                Show example
+            </button>
+
+            <div id="household" class="info-box hidden">
+                <strong>Example:</strong><br>
+                "Keep out of reach of children.
+                Do not swallow."
+            </div>
+        </div>
+
+    </div>
 
 </section>
 
 
+<section id="exercises">
 
-<!-- ================= METHOD ================= -->
+    <h2>✏️ Practice</h2>
 
-<section id="method" class="screen">
+    <p>
+        Choose the answer that best explains the instruction.
+        You will immediately see whether your answer is correct.
+    </p>
 
-<button class="back" onclick="openScreen('home')">
-← Home
-</button>
 
-<div class="section-title">
+    <div class="exercise">
 
-<h2>
-🧠 4-Step Method
-</h2>
+        <div class="exercise-question">
+            1. What does "Unplug the device" mean?
+        </div>
 
-<p>
-Use this whenever you meet an unfamiliar instruction.
-</p>
+        <div class="exercise-options">
 
-</div>
+            <button class="option"
+                    onclick="checkExercise(this, true, 'ex1')">
+                Disconnect it from electricity
+            </button>
 
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex1')">
+                Turn the volume up
+            </button>
 
-<div class="card hero">
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex1')">
+                Wash it with water
+            </button>
 
-<div class="hero-title">
-READ → FIND → CHECK → ACT
-</div>
+        </div>
 
-</div>
+        <div id="ex1" class="feedback"></div>
 
+    </div>
 
-<div class="card">
 
+    <div class="exercise">
 
-<div class="step">
+        <div class="exercise-question">
+            2. "Keep out of reach of children" means:
+        </div>
 
-<div class="step-number">
-1
-</div>
+        <div class="exercise-options">
 
-<div>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex2')">
+                Give it to children
+            </button>
 
-<h3>
-READ
-</h3>
+            <button class="option"
+                    onclick="checkExercise(this, true, 'ex2')">
+                Put it somewhere children cannot easily reach
+            </button>
 
-<p>
-Read the whole sentence. Don't stop at the first unfamiliar word.
-</p>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex2')">
+                Use it with children
+            </button>
 
-</div>
+        </div>
 
-</div>
+        <div id="ex2" class="feedback"></div>
 
+    </div>
 
 
-<div class="step">
+    <div class="exercise">
 
-<div class="step-number">
-2
-</div>
+        <div class="exercise-question">
+            3. "Avoid contact with eyes" means:
+        </div>
 
-<div>
+        <div class="exercise-options">
 
-<h3>
-FIND
-</h3>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex3')">
+                Put the product into your eyes
+            </button>
 
-<p>
-Find the main action.
-</p>
+            <button class="option"
+                    onclick="checkExercise(this, true, 'ex3')">
+                Do not let the product touch your eyes
+            </button>
 
-<p>
-Ask:
-<strong>What should I do?</strong>
-</p>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex3')">
+                Wash your eyes with the product
+            </button>
 
-</div>
+        </div>
 
-</div>
+        <div id="ex3" class="feedback"></div>
 
+    </div>
 
 
-<div class="step">
+    <div class="exercise">
 
-<div class="step-number">
-3
-</div>
+        <div class="exercise-question">
+            4. "Rinse with clean water" means:
+        </div>
 
-<div>
+        <div class="exercise-options">
 
-<h3>
-CHECK
-</h3>
+            <button class="option"
+                    onclick="checkExercise(this, true, 'ex4')">
+                Wash with water
+            </button>
 
-<p>
-Look for important signals:
-</p>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex4')">
+                Dry with a towel
+            </button>
 
-<p>
-🚨 DO NOT · DON'T · NEVER · AVOID
-</p>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex4')">
+                Put it in a freezer
+            </button>
 
-<p>
-⏰ BEFORE · AFTER
-</p>
+        </div>
 
-<p>
-📦 STORE · KEEP
-</p>
+        <div id="ex4" class="feedback"></div>
 
-</div>
+    </div>
 
-</div>
 
+    <div class="exercise">
 
+        <div class="exercise-question">
+            5. "Do not use near water" is:
+        </div>
 
-<div class="step">
+        <div class="exercise-options">
 
-<div class="step-number">
-4
-</div>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex5')">
+                A suggestion
+            </button>
 
-<div>
+            <button class="option"
+                    onclick="checkExercise(this, true, 'ex5')">
+                A prohibition / warning
+            </button>
 
-<h3>
-ACT
-</h3>
+            <button class="option"
+                    onclick="checkExercise(this, false, 'ex5')">
+                A time expression
+            </button>
 
-<p>
-Only after you understand the instruction should you follow it.
-</p>
+        </div>
 
-</div>
+        <div id="ex5" class="feedback"></div>
 
-</div>
-
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Example
-</h3>
-
-<div class="example">
-
-<strong>
-Charge the device before first use.
-</strong>
-
-<br><br>
-
-First:
-<strong>charge</strong>
-
-<br>
-
-Then:
-<strong>use</strong>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
+
+<section id="quiz">
+
+    <h2>📝 Interactive Test</h2>
+
+    <p>
+        Now test your understanding of everyday English instructions.
+    </p>
+
+    <div class="info-box">
+        <strong>Important:</strong>
+        Your answers are checked individually.
+        The final percentage is calculated from your actual answers.
+    </div>
+
+    <div class="quiz-progress">
+        <div id="quizProgress" class="quiz-progress-bar"></div>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <div class="quiz-navigation">
+
+        <button id="prevBtn"
+                class="secondary"
+                onclick="previousQuestion()">
+            ← Previous
+        </button>
+
+        <button id="nextBtn"
+                class="primary"
+                onclick="nextQuestion()">
+            Next →
+        </button>
+
+    </div>
+
+
+    <div id="resultBox" class="result-box">
+
+        <h2>🎉 Test completed!</h2>
+
+        <div id="resultScore" class="result-score">
+            0 / 12
+        </div>
+
+        <div id="resultPercent" class="result-percent">
+            0%
+        </div>
+
+        <p id="resultMessage"></p>
+
+        <div id="errorList" class="error-list"></div>
+
+        <button class="primary"
+                onclick="restartQuiz()">
+            🔄 Try Again
+        </button>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <h2>📌 Quick reminder</h2>
+
+    <div class="success-box">
+
+        <strong>Before using a product:</strong>
+
+        <br><br>
+
+        1️⃣ <strong>READ</strong> the instruction.<br>
+        2️⃣ <strong>FIND</strong> the important words.<br>
+        3️⃣ <strong>CHECK</strong> warnings, conditions and time.<br>
+        4️⃣ <strong>ACT</strong> according to the instruction.
+
+        <br><br>
+
+        You don't have to understand every single word.
+        Focus on the information that tells you what to do
+        and what not to do.
+
+    </div>
+
+</section>
 
 </main>
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<footer>
 
-<nav class="bottom-nav">
+    <h3>Read Before You Use</h3>
 
-<button
-data-screen="home"
-onclick="openScreen('home')">
+    <p>Understanding English Product Instructions in Everyday Life</p>
 
-<span class="nav-icon">🏠</span>
+    <p>Practical English Guide</p>
 
-Home
-
-</button>
-
-
-<button
-data-screen="learn"
-onclick="openScreen('learn')">
-
-<span class="nav-icon">📚</span>
-
-Learn
-
-</button>
-
-
-<button
-data-screen="practice"
-onclick="openScreen('practice')">
-
-<span class="nav-icon">✏️</span>
-
-Practice
-
-</button>
-
-
-<button
-data-screen="quick"
-onclick="openScreen('quick')">
-
-<span class="nav-icon">⚡</span>
-
-Quick Help
-
-</button>
-
-</nav>
-
-</div>
-
+</footer>
 
 
 <script>
 
-/* =====================================================
-   WORD DATABASE
-===================================================== */
+/* =========================
+   BASIC NAVIGATION
+========================= */
 
-const words = [
-
-["press","нажать"],
-
-["turn on","включить"],
-
-["turn off","выключить"],
-
-["connect","подключить"],
-
-["insert","вставить"],
-
-["remove","снять / удалить"],
-
-["apply","нанести"],
-
-["rinse","промыть"],
-
-["charge","зарядить"],
-
-["unplug","отключить от сети"],
-
-["open","открыть"],
-
-["close","закрыть"],
-
-["wash","вымыть"],
-
-["shake","встряхнуть"],
-
-["store","хранить"],
-
-["warning","предупреждение"],
-
-["caution","осторожно"],
-
-["avoid","избегать"],
-
-["do not use","не использовать"],
-
-["do not touch","не прикасаться"],
-
-["never","никогда"],
-
-["keep away from","держать вдали от"],
-
-["keep out of reach","хранить в недоступном месте"],
-
-["before use","перед использованием"],
-
-["before first use","перед первым использованием"],
-
-["after use","после использования"],
-
-["during use","во время использования"],
-
-["before cleaning","перед очисткой"],
-
-["after washing","после мытья"],
-
-["before bedtime","перед сном"],
-
-["at room temperature","при комнатной температуре"],
-
-["suitable for","подходит для"],
-
-["for external use only","только для наружного применения"],
-
-["in a cool, dry place","в прохладном сухом месте"]
-
-];
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function openScreen(id){
-
-    document
-    .querySelectorAll(".screen")
-    .forEach(screen=>{
-        screen.classList.remove("active");
+function goTo(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
     });
-
-    document
-    .getElementById(id)
-    .classList.add("active");
+}
 
 
-    document
-    .querySelectorAll(".bottom-nav button")
-    .forEach(button=>{
+/* =========================
+   SITUATION EXAMPLES
+========================= */
 
-        button.classList.toggle(
-            "active",
-            button.dataset.screen === id
-        );
+function showSituation(id) {
 
-    });
+    const element = document.getElementById(id);
 
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    element.classList.toggle("hidden");
 
 }
 
 
-/* =====================================================
-   THEORY
-===================================================== */
+/* =========================
+   PRACTICE EXERCISES
+========================= */
 
-function showTheory(topic){
+const exerciseDone = {};
 
-    const area=document.getElementById("theoryArea");
+function checkExercise(button, isCorrect, feedbackId) {
 
-    let content="";
-
-
-    if(topic==="actions"){
-
-        content=`
-
-        <div class="card">
-
-        <h2>🔵 Action Words</h2>
-
-        <p>
-        These words tell you what action you should take.
-        </p>
-
-        <div class="word-list">
-
-        ${words.slice(0,15).map(word=>`
-
-            <div class="word">
-
-                <b>${word[0]}</b>
-
-                <span>${word[1]}</span>
-
-            </div>
-
-        `).join("")}
-
-        </div>
-
-
-        <div class="example">
-
-        <strong>Press the button.</strong>
-
-        <br>
-
-        <strong>Apply the cream.</strong>
-
-        <br>
-
-        <strong>Insert the cable.</strong>
-
-        <br>
-
-        <strong>Remove the cover.</strong>
-
-        </div>
-
-
-        <button
-        class="btn full"
-        onclick="startQuiz('actionsQuiz')">
-
-        Practice this topic →
-
-        </button>
-
-        </div>
-
-        `;
-
+    // Не позволяем отвечать на один вопрос несколько раз
+    if (exerciseDone[feedbackId]) {
+        return;
     }
 
+    exerciseDone[feedbackId] = true;
 
+    const container = button.parentElement;
+    const buttons = container.querySelectorAll(".option");
 
-    if(topic==="warnings"){
-
-        content=`
-
-        <div class="card">
-
-        <h2>🚨 Warnings & Prohibitions</h2>
-
-        <p>
-        Instructions can also tell you what NOT to do.
-        </p>
-
-
-        <div class="word-list">
-
-        ${words.slice(15,23).map(word=>`
-
-            <div class="word">
-
-                <b>${word[0]}</b>
-
-                <span>${word[1]}</span>
-
-            </div>
-
-        `).join("")}
-
-        </div>
-
-
-        <div class="warning">
-
-        <strong>🚨 IMPORTANT</strong>
-
-        <p>
-        DO NOT + VERB = PROHIBITION
-        </p>
-
-        <p>
-        Do not touch the device.
-        </p>
-
-        <p>
-        Do not use the product on damaged skin.
-        </p>
-
-        <p>
-        Do not open while charging.
-        </p>
-
-        </div>
-
-
-        <div class="tip">
-
-        When you see:
-
-        <strong>
-        DO NOT · DON'T · NEVER · AVOID
-        </strong>
-
-        stop and read again.
-
-        </div>
-
-
-        <button
-        class="btn full"
-        onclick="startQuiz('warningQuiz')">
-
-        Practice this topic →
-
-        </button>
-
-        </div>
-
-        `;
-
-    }
-
-
-
-    if(topic==="time"){
-
-        content=`
-
-        <div class="card">
-
-        <h2>⏰ Time & Conditions</h2>
-
-        <div class="word-list">
-
-        ${words.slice(23,32).map(word=>`
-
-            <div class="word">
-
-                <b>${word[0]}</b>
-
-                <span>${word[1]}</span>
-
-            </div>
-
-        `).join("")}
-
-        </div>
-
-
-        <div class="example">
-
-        <strong>
-        Charge the device before first use.
-        </strong>
-
-        <br><br>
-
-        First:
-
-        <strong>charge</strong>
-
-        →
-
-        Then:
-
-        <strong>use</strong>
-
-        </div>
-
-
-        <div class="tip">
-
-        <strong>BEFORE</strong> = earlier
-
-        <br>
-
-        <strong>AFTER</strong> = later
-
-        </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-
-    if(topic==="storage"){
-
-        content=`
-
-        <div class="card">
-
-        <h2>📦 Storage Instructions</h2>
-
-        <p>
-        Products often have special storage instructions.
-        </p>
-
-
-        <div class="word-list">
-
-        <div class="word">
-
-        <b>Store in a cool, dry place.</b>
-
-        <span>
-        Хранить в прохладном сухом месте.
-        </span>
-
-        </div>
-
-
-        <div class="word">
-
-        <b>Keep away from direct sunlight.</b>
-
-        <span>
-        Хранить вдали от прямых солнечных лучей.
-        </span>
-
-        </div>
-
-
-        <div class="word">
-
-        <b>Keep away from heat.</b>
-
-        <span>
-        Хранить вдали от тепла.
-        </span>
-
-        </div>
-
-
-        <div class="word">
-
-        <b>Keep out of reach of children.</b>
-
-        <span>
-        Хранить в недоступном для детей месте.
-        </span>
-
-        </div>
-
-        </div>
-
-
-        <div class="example">
-
-        🌞 Direct sunlight → ❌
-
-        <br>
-
-        🔥 Near a heater → ❌
-
-        <br>
-
-        💧 Wet place → ❌
-
-        <br>
-
-        🌡️ Cool, dry place → ✅
-
-        </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-
-    if(topic==="context"){
-
-        content=`
-
-        <div class="card">
-
-        <h2>🔎 Phrases in Context</h2>
-
-        <p>
-        Don't translate every word separately.
-        Look at the meaning of the complete phrase.
-        </p>
-
-
-        <div class="example">
-
-        <strong>
-        KEEP AWAY FROM
-        </strong>
-
-        <p>
-        держать вдали от
-        </p>
-
-        </div>
-
-
-        <div class="example">
-
-        <strong>
-        OUT OF REACH
-        </strong>
-
-        <p>
-        в недоступном месте
-        </p>
-
-        </div>
-
-
-        <div class="example">
-
-        <strong>
-        SUITABLE FOR
-        </strong>
-
-        <p>
-        подходит для
-        </p>
-
-        </div>
-
-
-        <div class="example">
-
-        <strong>
-        FOR EXTERNAL USE ONLY
-        </strong>
-
-        <p>
-        только для наружного применения
-        </p>
-
-        </div>
-
-
-        <div class="tip">
-
-        ⭐ Golden Rule
-
-        <br><br>
-
-        Don't ask only:
-
-        <strong>
-        What does this word mean?
-        </strong>
-
-        <br><br>
-
-        Ask:
-
-        <strong>
-        What does this word mean HERE?
-        </strong>
-
-        </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-
-    if(topic==="method"){
-
-        content=`
-
-        <div class="card">
-
-        <h2>🧠 READ → FIND → CHECK → ACT</h2>
-
-
-        <div class="step">
-
-        <div class="step-number">1</div>
-
-        <div>
-
-        <h3>READ</h3>
-
-        <p>
-        Read the whole sentence.
-        </p>
-
-        </div>
-
-        </div>
-
-
-        <div class="step">
-
-        <div class="step-number">2</div>
-
-        <div>
-
-        <h3>FIND</h3>
-
-        <p>
-        Find the main action.
-        </p>
-
-        </div>
-
-        </div>
-
-
-        <div class="step">
-
-        <div class="step-number">3</div>
-
-        <div>
-
-        <h3>CHECK</h3>
-
-        <p>
-        Look for warnings, time expressions and conditions.
-        </p>
-
-        </div>
-
-        </div>
-
-
-        <div class="step">
-
-        <div class="step-number">4</div>
-
-        <div>
-
-        <h3>ACT</h3>
-
-        <p>
-        Only after understanding the instruction should you follow it.
-        </p>
-
-        </div>
-
-        </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-    area.innerHTML=content;
-
-    window.scrollTo({
-        top:area.offsetTop-20,
-        behavior:"smooth"
+    buttons.forEach(btn => {
+        btn.disabled = true;
     });
 
-}
+    const feedback = document.getElementById(feedbackId);
 
-
-/* =====================================================
-   QUIZ DATA
-===================================================== */
-
-const quizzes={
-
-
-actionsQuiz:[
-
-{
-q:"Press the power button to turn on the device.",
-ask:"What should you do?",
-options:[
-"Press the power button.",
-"Charge the device.",
-"Remove the battery."
-],
-answer:0
-},
-
-{
-q:"Apply a small amount of cream to clean skin.",
-ask:"What should you do?",
-options:[
-"Wash the cream away.",
-"Put cream on clean skin.",
-"Put cream on clothes."
-],
-answer:1
-},
-
-{
-q:"Insert the cable into the charging port.",
-ask:"What should you do?",
-options:[
-"Remove the cable.",
-"Put the cable into the charging port.",
-"Wash the cable."
-],
-answer:1
-},
-
-{
-q:"Rinse the product with clean water after use.",
-ask:"What should you do?",
-options:[
-"Wash it with clean water.",
-"Put it in the refrigerator.",
-"Use it immediately."
-],
-answer:0
-},
-
-{
-q:"Remove the protective film before using the device.",
-ask:"When should you remove it?",
-options:[
-"After using the device.",
-"Before using the device.",
-"After one week."
-],
-answer:1
-}
-
-],
-
-
-
-warningQuiz:[
-
-{
-q:"Do not use the product on damaged skin.",
-ask:"Where should you NOT use it?",
-options:[
-"Healthy skin",
-"Clean skin",
-"Damaged skin"
-],
-answer:2
-},
-
-{
-q:"Do not touch the device with wet hands.",
-ask:"What should you NOT do?",
-options:[
-"Touch the device with wet hands.",
-"Charge the device.",
-"Clean the device."
-],
-answer:0
-},
-
-{
-q:"Keep away from children.",
-ask:"What does this mean?",
-options:[
-"Give it to children.",
-"Keep it away from children.",
-"Let children use it."
-],
-answer:1
-},
-
-{
-q:"Avoid contact with eyes.",
-ask:"What should you do?",
-options:[
-"Put the product into your eyes.",
-"Avoid contact with your eyes.",
-"Wash your eyes with the product."
-],
-answer:1
-},
-
-{
-q:"Do not open the device while it is charging.",
-ask:"When should you NOT open it?",
-options:[
-"When it is charging.",
-"When it is turned off.",
-"Before buying it."
-],
-answer:0
-}
-
-],
-
-
-
-realQuiz:[
-
-{
-q:"Apply a small amount of cream to clean skin.",
-ask:"What should you do?",
-options:[
-"Apply the cream.",
-"Wash the cream.",
-"Throw it away."
-],
-answer:0
-},
-
-{
-q:"Avoid contact with eyes.",
-ask:"What should you avoid?",
-options:[
-"Clean skin.",
-"Using a small amount.",
-"Contact with eyes."
-],
-answer:2
-},
-
-{
-q:"Charge the device fully before first use.",
-ask:"What should happen first?",
-options:[
-"Use the device.",
-"Charge the device.",
-"Clean the device."
-],
-answer:1
-},
-
-{
-q:"Unplug before cleaning.",
-ask:"What should you do before cleaning?",
-options:[
-"Unplug the device.",
-"Turn the device on.",
-"Charge the device."
-],
-answer:0
-}
-
-],
-
-
-
-finalQuiz:[
-
-{
-q:"Unplug the device before cleaning.",
-ask:"What should you do first?",
-options:[
-"Clean the device.",
-"Unplug the device.",
-"Turn it on."
-],
-answer:1
-},
-
-{
-q:"Do not use water to clean the device.",
-ask:"What should you NOT use?",
-options:[
-"Water.",
-"A dry cloth.",
-"The device."
-],
-answer:0
-},
-
-{
-q:"Apply the cream to clean skin before bedtime.",
-ask:"When should you apply it?",
-options:[
-"In the morning.",
-"Before bedtime.",
-"After breakfast."
-],
-answer:1
-},
-
-{
-q:"Keep away from direct sunlight.",
-ask:"What should you avoid?",
-options:[
-"A cool place.",
-"Direct sunlight.",
-"A dry place."
-],
-answer:1
-},
-
-{
-q:"The product is suitable for sensitive skin.",
-ask:"What does suitable for mean?",
-options:[
-"Appropriate for.",
-"Dangerous for.",
-"Different from."
-],
-answer:0
-},
-
-{
-q:"Rinse thoroughly after use.",
-ask:"What should you do?",
-options:[
-"Wash it carefully.",
-"Dry it immediately.",
-"Use it again."
-],
-answer:0
-},
-
-{
-q:"Keep out of reach of children.",
-ask:"Where should you keep the product?",
-options:[
-"Where children can easily take it.",
-"Where children cannot easily get it.",
-"In a child's room."
-],
-answer:1
-},
-
-{
-q:"Do not touch the device with wet hands.",
-ask:"Can you touch it with wet hands?",
-options:[
-"Yes.",
-"No."
-],
-answer:1
-},
-
-{
-q:"Shake well before use.",
-ask:"What should you do before using the product?",
-options:[
-"Shake it well.",
-"Wash it.",
-"Open the battery."
-],
-answer:0
-},
-
-{
-q:"Charge the device fully before first use.",
-ask:"What should happen first?",
-options:[
-"Use the device.",
-"Charge the device.",
-"Clean the device."
-],
-answer:1
-}
-
-]
-
-};
-
-
-/* =====================================================
-   QUIZ ENGINE
-===================================================== */
-
-let currentQuiz=[];
-let currentQuizId="";
-
-
-function startQuiz(id){
-
-    currentQuiz=quizzes[id];
-
-    currentQuizId=id;
-
-    const area=document.getElementById("quizArea");
-
-    let html=`
-
-    <div class="card">
-
-    <h2>
-    ${id==="finalQuiz" ? "🏆 Final Challenge" : "✏️ Practice"}
-    </h2>
-
-    <p>
-    Choose the best answer.
-    </p>
-
-    <div id="questions">
-
-    `;
-
-
-    currentQuiz.forEach((item,index)=>{
-
-        html+=`
-
-        <div class="question">
-
-        <div class="question-title">
-
-        ${index+1}. ${item.q}
-
-        <br>
-
-        <span style="font-weight:normal">
-        ${item.ask}
-        </span>
-
-        </div>
-
-
-        <div class="options">
-
-        ${item.options.map((option,i)=>`
-
-        <button
-        class="option"
-        onclick="answerQuestion(
-            ${index},
-            ${i},
-            this
-        )">
-
-        ${option}
-
-        </button>
-
-        `).join("")}
-
-        </div>
-
-
-        <div
-        id="feedback-${index}">
-        </div>
-
-        </div>
-
-        `;
-
-    });
-
-
-    html+=`
-
-    </div>
-
-    <button
-    class="btn full"
-    onclick="finishQuiz()">
-
-    Check my result
-
-    </button>
-
-    <div id="result"></div>
-
-    </div>
-
-    `;
-
-
-    area.innerHTML=html;
-
-    window.scrollTo({
-        top:area.offsetTop-20,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
-   ANSWER QUESTION
-===================================================== */
-
-function answerQuestion(
-    questionIndex,
-    answerIndex,
-    button
-){
-
-    const question=currentQuiz[questionIndex];
-
-    const buttons=
-    button.parentElement.querySelectorAll(".option");
-
-    buttons.forEach(b=>{
-        b.disabled=true;
-    });
-
-
-    buttons.forEach((b,index)=>{
-
-        if(index===question.answer){
-
-            b.classList.add("correct");
-
-        }
-
-    });
-
-
-    const feedback=
-    document.getElementById(
-        `feedback-${questionIndex}`
-    );
-
-
-    if(answerIndex===question.answer){
+    if (isCorrect) {
 
         button.classList.add("correct");
 
-        feedback.innerHTML=`
+        feedback.textContent = "✓ Correct! Well done.";
+        feedback.className =
+            "feedback show correct-feedback";
 
-        <div class="feedback correct-feedback">
-
-        ✓ Correct!
-
-        </div>
-
-        `;
-
-    }
-
-    else{
+    } else {
 
         button.classList.add("wrong");
 
-        feedback.innerHTML=`
+        // Найти правильный ответ
+        buttons.forEach(btn => {
 
-        <div class="feedback wrong-feedback">
+            const onclickText = btn.getAttribute("onclick");
 
-        ✗ Not quite. The correct answer is highlighted.
-
-        </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =====================================================
-   FINISH QUIZ
-===================================================== */
-
-function finishQuiz(){
-
-    let score=0;
-
-    let answered=0;
-
-
-    currentQuiz.forEach((question,index)=>{
-
-        const questionBox=
-        document.querySelectorAll(
-            ".question"
-        )[index];
-
-
-        const buttons=
-        questionBox.querySelectorAll(".option");
-
-
-        let answeredThis=false;
-
-
-        buttons.forEach((button,i)=>{
-
-            if(button.disabled){
-
-                answeredThis=true;
-
-                if(
-                    i===question.answer &&
-                    button.classList.contains("correct")
-                ){
-
-                    score++;
-
-                }
-
+            if (onclickText && onclickText.includes("true")) {
+                btn.classList.add("correct");
             }
 
         });
 
+        feedback.textContent =
+            "✗ Not quite. The correct answer is highlighted in green.";
 
-        if(answeredThis){
-            answered++;
-        }
+        feedback.className =
+            "feedback show wrong-feedback";
+    }
+}
+
+
+/* =========================
+   QUIZ DATA
+========================= */
+
+/*
+    answer = index of the correct option.
+
+    0 = first answer
+    1 = second answer
+    2 = third answer
+*/
+
+const questions = [
+
+    {
+        question: "What does 'unplug the device' mean?",
+        options: [
+            "Disconnect the device from electricity",
+            "Turn the device louder",
+            "Wash the device"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What does 'keep away from children' mean?",
+        options: [
+            "Give the product to children",
+            "Keep the product away from children",
+            "Teach children to use it"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What does 'avoid contact with eyes' mean?",
+        options: [
+            "Do not let the product touch your eyes",
+            "Put the product into your eyes",
+            "Wash your eyes with the product"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What does 'rinse with clean water' mean?",
+        options: [
+            "Dry the product",
+            "Wash with water",
+            "Freeze the product"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What type of information is 'Do not use near water'?",
+        options: [
+            "A prohibition / warning",
+            "A time expression",
+            "A recommendation to use more water"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What does 'suitable for sensitive skin' mean?",
+        options: [
+            "The product is appropriate for sensitive skin",
+            "The product damages all skin",
+            "The product must not touch skin"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Read: 'Leave the cream on for 5 minutes.' What information is important?",
+        options: [
+            "The cream should stay on for five minutes",
+            "The cream should stay on for five hours",
+            "The cream should be washed immediately"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Read: 'Wash your hands before use.' When should you wash your hands?",
+        options: [
+            "After using the product",
+            "Before using the product",
+            "The next day"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Read: 'Unplug the charger before cleaning.' What should you do first?",
+        options: [
+            "Clean the charger",
+            "Unplug the charger",
+            "Put the charger in water"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Read: 'Keep out of reach of children.' Where should the product be?",
+        options: [
+            "Somewhere children cannot easily reach it",
+            "On a child's desk",
+            "In a child's backpack"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Read: 'Do not use near water.' What should you NOT do?",
+        options: [
+            "Keep the product dry",
+            "Use the product near water",
+            "Read the instruction"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Read: 'Rinse thoroughly after use.' What should you do?",
+        options: [
+            "Wash thoroughly after using the product",
+            "Use the product again immediately",
+            "Never use water"
+        ],
+        answer: 0
+    }
+
+];
+
+
+/* =========================
+   QUIZ STATE
+========================= */
+
+let currentQuestion = 0;
+
+/*
+    This object stores the ACTUAL answers
+    selected by the user.
+
+    Example:
+
+    userAnswers[0] = 1
+
+    means the user selected answer #2
+    for question #1.
+*/
+
+let userAnswers = {};
+
+
+/* =========================
+   CREATE QUIZ
+========================= */
+
+function renderQuiz() {
+
+    const container =
+        document.getElementById("quizContainer");
+
+    container.innerHTML = "";
+
+    questions.forEach((q, index) => {
+
+        const questionDiv =
+            document.createElement("div");
+
+        questionDiv.className =
+            "quiz-question";
+
+        questionDiv.id =
+            "question-" + index;
+
+        const counter =
+            document.createElement("div");
+
+        counter.className =
+            "quiz-counter";
+
+        counter.textContent =
+            "Question " +
+            (index + 1) +
+            " of " +
+            questions.length;
+
+        const questionText =
+            document.createElement("div");
+
+        questionText.className =
+            "exercise-question";
+
+        questionText.textContent =
+            q.question;
+
+        const optionsDiv =
+            document.createElement("div");
+
+        optionsDiv.className =
+            "exercise-options";
+
+
+        q.options.forEach((option, optionIndex) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className = "option";
+
+            button.textContent = option;
+
+            button.onclick = function() {
+
+                selectQuizAnswer(
+                    index,
+                    optionIndex,
+                    button
+                );
+
+            };
+
+            optionsDiv.appendChild(button);
+
+        });
+
+
+        const feedback =
+            document.createElement("div");
+
+        feedback.className = "feedback";
+
+        feedback.id =
+            "feedback-" + index;
+
+
+        questionDiv.appendChild(counter);
+
+        questionDiv.appendChild(questionText);
+
+        questionDiv.appendChild(optionsDiv);
+
+        questionDiv.appendChild(feedback);
+
+        container.appendChild(questionDiv);
 
     });
 
+    showQuestion(0);
+}
 
-    const result=
-    document.getElementById("result");
 
+/* =========================
+   SELECT ANSWER
+========================= */
 
-    if(answered<currentQuiz.length){
+function selectQuizAnswer(
+    questionIndex,
+    selectedAnswer,
+    clickedButton
+) {
 
-        result.innerHTML=`
-
-        <div class="feedback wrong-feedback">
-
-        Please answer all questions first.
-
-        </div>
-
-        `;
-
+    // Если пользователь уже ответил,
+    // ничего больше не делаем.
+    if (
+        userAnswers.hasOwnProperty(questionIndex)
+    ) {
         return;
+    }
+
+
+    // Сохраняем настоящий ответ пользователя
+    userAnswers[questionIndex] =
+        selectedAnswer;
+
+
+    const question =
+        questions[questionIndex];
+
+    const questionElement =
+        document.getElementById(
+            "question-" + questionIndex
+        );
+
+    const buttons =
+        questionElement.querySelectorAll(
+            ".option"
+        );
+
+
+    // Блокируем все варианты
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+
+    // Показываем правильный ответ
+    buttons[question.answer]
+        .classList.add("correct");
+
+
+    // Если пользователь ошибся,
+    // подсвечиваем его ответ красным.
+    if (
+        selectedAnswer !== question.answer
+    ) {
+
+        clickedButton.classList.add("wrong");
 
     }
 
 
-    const percent=
-    Math.round(
-        score/currentQuiz.length*100
-    );
+    const feedback =
+        document.getElementById(
+            "feedback-" + questionIndex
+        );
 
 
-    localStorage.setItem(
-        "quiz_"+currentQuizId,
-        "done"
-    );
+    if (
+        selectedAnswer === question.answer
+    ) {
+
+        feedback.textContent =
+            "✓ Correct!";
+
+        feedback.className =
+            "feedback show correct-feedback";
+
+    } else {
+
+        feedback.textContent =
+            "✗ Incorrect. The correct answer is highlighted in green.";
+
+        feedback.className =
+            "feedback show wrong-feedback";
+
+    }
+
+
+    updateProgress();
+}
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+function showQuestion(index) {
+
+    if (index < 0) {
+        index = 0;
+    }
+
+    if (index >= questions.length) {
+        index = questions.length - 1;
+    }
+
+    currentQuestion = index;
+
+
+    document
+        .querySelectorAll(".quiz-question")
+        .forEach(q => {
+            q.classList.remove("active");
+        });
+
+
+    const current =
+        document.getElementById(
+            "question-" + index
+        );
+
+    if (current) {
+        current.classList.add("active");
+    }
+
+
+    document.getElementById("prevBtn")
+        .disabled =
+        index === 0;
+
+
+    document.getElementById("nextBtn")
+        .textContent =
+        index === questions.length - 1
+            ? "Finish Test ✓"
+            : "Next →";
 
 
     updateProgress();
 
-
-    let message;
-
-
-    if(percent>=90){
-
-        message="Excellent! 🌟";
-
-    }
-
-    else if(percent>=70){
-
-        message="Great job! 👍";
-
-    }
-
-    else if(percent>=50){
-
-        message="Good start! Review the theory and try again. 📚";
-
-    }
-
-    else{
-
-        message="Keep practising the 4-step method. 💪";
-
-    }
-
-
-    result.innerHTML=`
-
-    <div class="card">
-
-    <div class="score">
-
-    ${percent}%
-
-    </div>
-
-    <p style="text-align:center">
-
-    <strong>
-    ${score} / ${currentQuiz.length}
-    </strong>
-
-    </p>
-
-    <p style="text-align:center">
-
-    ${message}
-
-    </p>
-
-    </div>
-
-    `;
-
 }
 
 
-/* =====================================================
-   QUICK WORD SEARCH
-===================================================== */
+/* =========================
+   NEXT QUESTION
+========================= */
 
-function searchWord(){
+function nextQuestion() {
 
-    const input=
-    document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
+    // Нельзя перейти дальше,
+    // пока пользователь не ответил.
+    if (
+        !userAnswers.hasOwnProperty(
+            currentQuestion
+        )
+    ) {
 
-
-    const results=
-    words.filter(word=>
-
-        word[0]
-        .toLowerCase()
-        .includes(input)
-
-        ||
-
-        word[1]
-        .toLowerCase()
-        .includes(input)
-
-    );
-
-
-    const container=
-    document.getElementById(
-        "searchResults"
-    );
-
-
-    if(results.length===0){
-
-        container.innerHTML=`
-
-        <p>
-        No result. Try another word.
-        </p>
-
-        `;
+        alert(
+            "Please choose an answer before continuing."
+        );
 
         return;
-
     }
 
 
-    container.innerHTML=
-    results.map(word=>`
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
 
-        <div class="word">
+        showQuestion(
+            currentQuestion + 1
+        );
 
-            <b>
-            ${word[0]}
-            </b>
+    } else {
 
-            <span>
-            ${word[1]}
-            </span>
+        finishQuiz();
 
-        </div>
-
-    `).join("");
+    }
 
 }
 
 
-function clearSearch(){
+/* =========================
+   PREVIOUS QUESTION
+========================= */
+
+function previousQuestion() {
+
+    if (currentQuestion > 0) {
+
+        showQuestion(
+            currentQuestion - 1
+        );
+
+    }
+
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+function updateProgress() {
+
+    const answered =
+        Object.keys(userAnswers).length;
+
+    const percentage =
+        (answered / questions.length) * 100;
 
     document.getElementById(
-        "searchInput"
-    ).value="";
-
-    searchWord();
+        "quizProgress"
+    ).style.width =
+        percentage + "%";
 
 }
 
 
-/* =====================================================
-   PROGRESS
-===================================================== */
+/* =========================
+   FINISH QUIZ
+========================= */
 
-function updateProgress(){
+function finishQuiz() {
 
-    const quizzesToTrack=[
-        "actionsQuiz",
-        "warningQuiz",
-        "realQuiz",
-        "finalQuiz"
-    ];
+    const totalQuestions =
+        questions.length;
 
+    let correctAnswers = 0;
 
-    let done=0;
+    let errors = [];
 
 
-    quizzesToTrack.forEach(id=>{
+    /*
+        IMPORTANT:
 
-        if(
-            localStorage.getItem(
-                "quiz_"+id
-            )
-        ){
+        We compare the answers stored in
+        userAnswers with the correct answers
+        stored in questions.
 
-            done++;
+        This is what prevents the site
+        from showing 100% when the user
+        made mistakes.
+    */
+
+    questions.forEach(
+        (question, index) => {
+
+            const userAnswer =
+                userAnswers[index];
+
+            if (
+                userAnswer ===
+                question.answer
+            ) {
+
+                correctAnswers++;
+
+            } else {
+
+                errors.push({
+                    number: index + 1,
+                    question: question.question,
+                    userAnswer:
+                        question.options[userAnswer],
+                    correctAnswer:
+                        question.options[
+                            question.answer
+                        ]
+                });
+
+            }
 
         }
+    );
 
+
+    const percentage =
+        Math.round(
+            (correctAnswers /
+                totalQuestions) *
+            100
+        );
+
+
+    // Hide questions/navigation
+    document.getElementById(
+        "quizContainer"
+    ).classList.add("hidden");
+
+    document.querySelector(
+        ".quiz-navigation"
+    ).classList.add("hidden");
+
+
+    // Show result
+    const resultBox =
+        document.getElementById(
+            "resultBox"
+        );
+
+    resultBox.classList.add("show");
+
+
+    document.getElementById(
+        "resultScore"
+    ).textContent =
+        correctAnswers +
+        " / " +
+        totalQuestions;
+
+
+    document.getElementById(
+        "resultPercent"
+    ).textContent =
+        "Your score: " +
+        percentage +
+        "%";
+
+
+    let message = "";
+
+
+    if (percentage >= 80) {
+
+        message =
+            "Great job! You understand English instructions very well. 🎉";
+
+    } else if (percentage >= 60) {
+
+        message =
+            "Good work! Keep practising difficult instruction words.";
+
+    } else {
+
+        message =
+            "Keep practising. Review the vocabulary and the READ → FIND → CHECK → ACT strategy.";
+
+    }
+
+
+    document.getElementById(
+        "resultMessage"
+    ).textContent =
+        message;
+
+
+    /*
+        Display mistakes
+    */
+
+    const errorList =
+        document.getElementById(
+            "errorList"
+        );
+
+    errorList.innerHTML = "";
+
+
+    if (errors.length === 0) {
+
+        errorList.innerHTML =
+            `<div class="success-box">
+                🎯 Perfect score!
+                You answered every question correctly.
+            </div>`;
+
+    } else {
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent =
+            "Review your mistakes:";
+
+        errorList.appendChild(title);
+
+
+        errors.forEach(error => {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "error-item";
+
+            item.innerHTML = `
+                <strong>
+                    Question ${error.number}
+                </strong>
+                <br>
+                ${error.question}
+                <br><br>
+                <strong>Your answer:</strong>
+                ${error.userAnswer}
+                <br>
+                <strong>Correct answer:</strong>
+                ${error.correctAnswer}
+            `;
+
+            errorList.appendChild(item);
+
+        });
+
+    }
+
+
+    resultBox.scrollIntoView({
+        behavior: "smooth"
     });
 
+}
 
-    const percent=
-    Math.round(
-        done/quizzesToTrack.length*100
-    );
+
+/* =========================
+   RESTART QUIZ
+========================= */
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    userAnswers = {};
 
 
     document.getElementById(
-        "progressText"
-    ).textContent=
-    percent+"%";
+        "resultBox"
+    ).classList.remove("show");
 
 
     document.getElementById(
-        "progressBar"
-    ).style.width=
-    percent+"%";
+        "quizContainer"
+    ).classList.remove("hidden");
+
+
+    document.querySelector(
+        ".quiz-navigation"
+    ).classList.remove("hidden");
+
+
+    renderQuiz();
+
+
+    document.getElementById(
+        "quiz"
+    ).scrollIntoView({
+        behavior: "smooth"
+    });
 
 }
 
 
-/* =====================================================
-   LANGUAGE BUTTON
-===================================================== */
-
-let russian=false;
-
-
-function changeLanguage(){
-
-    const title=
-    document.getElementById(
-        "mainTitle"
-    );
-
-    const subtitle=
-    document.getElementById(
-        "mainSubtitle"
-    );
-
-
-    russian=!russian;
-
-
-    if(russian){
-
-        title.textContent=
-        "Понимай английский. Используй продукты безопасно.";
-
-        subtitle.textContent=
-        "Практический гайд для понимания инструкций на английском.";
-
-    }
-
-    else{
-
-        title.textContent=
-        "Understand English. Use Products Safely.";
-
-        subtitle.textContent=
-        "A practical guide for understanding everyday product instructions.";
-
-    }
-
-}
-
-
-/* =====================================================
+/* =========================
    START
-===================================================== */
+========================= */
 
-searchWord();
-
-updateProgress();
+renderQuiz();
 
 </script>
 
